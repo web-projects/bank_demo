@@ -30,7 +30,6 @@ git remote add origin git@github.com:web-projects/bank_demo.git
 
   $ heroku create
 
-  https://still-peak-87954.herokuapp.com/ | https://git.heroku.com/still-peak-87954.git
+  https://jb-bank-demo.herokuapp.com/
 
   $ git push heroku master
-  
