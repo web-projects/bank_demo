@@ -2,6 +2,9 @@
 
 require_once('../../../private/initialize.php');
 
+// Secure Page Access
+require_login();
+
 if(is_post_request()) {
 
   $page = [];
@@ -16,14 +19,16 @@ if(is_post_request()) {
     $new_id = mysqli_insert_id($db);
     $_SESSION['message'] = 'The page was created succesfully.';
     redirect_to(url_for('/staff/pages/show.php?id=' . $new_id));
-  } else {
+  }
+  else {
     $errors = $result;
   }
 
-} else {
+}
+else {
 
   $page = [];
-  $page['subject_id'] = '';
+  $page['subject_id'] = $_GET['subject_id'] ?? '1';
   $page['menu_name'] = '';
   $page['position'] = '';
   $page['visible'] = '';
@@ -31,9 +36,11 @@ if(is_post_request()) {
 
 }
 
-$page_set = find_all_pages();
-$page_count = mysqli_num_rows($page_set) + 1;
-mysqli_free_result($page_set);
+//$page_set = find_all_pages();
+//$page_count = mysqli_num_rows($page_set) + 1;
+//mysqli_free_result($page_set);
+
+$page_count = count_pages_by_subject_id($page['subject_id']) + 1;
 
 ?>
 
@@ -42,7 +49,8 @@ mysqli_free_result($page_set);
 
 <div id="content">
 
-  <a class="back-link" href="<?php echo url_for('/staff/pages/index.php'); ?>">&laquo; Back to List</a>
+  <!--a class="back-link" href="< ?php echo url_for('/staff/pages/index.php'); ?>">&laquo; Back to List</a-->
+  <a class="back-link" href="<?php echo url_for('/staff/subjects/show.php?id=' . h(u($page['subject_id']))); ?>">&laquo; Back to Subject Page</a>
 
   <div class="page new">
     <h1>Create Page</h1>

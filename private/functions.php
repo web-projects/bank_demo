@@ -50,7 +50,10 @@ function display_errors($errors=array()) {
     $output .= "Please fix the following errors:";
     $output .= "<ul>";
     foreach($errors as $error) {
-      $output .= "<li>" . h($error) . "</li>";
+
+      if(!empty($error)) {
+        $output .= "<li>" . h($error) . "</li>";
+      }
     }
     $output .= "</ul>";
     $output .= "</div>";

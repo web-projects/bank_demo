@@ -2,6 +2,9 @@
 
 require_once('../../../private/initialize.php');
 
+// Secure Page Access
+require_login();
+
 if(!isset($_GET['id'])) {
   redirect_to(url_for('/staff/subjects/index.php'));
 }
