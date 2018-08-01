@@ -20,3 +20,17 @@ git remote add origin git@github.com:web-projects/bank_demo.git
     $ 2018/07/15 - Initial repository.
     $ 2018/07/31 - Added sessions support.
     $ 2018/08/01 - Added CMS for Subjects and Pages.
+
+
+# -------------------------------------------------
+# HEROKU PHP HOSTING
+# -------------------------------------------------
+
+  From the root of the PHP project:
+
+  $ heroku create
+
+  https://still-peak-87954.herokuapp.com/ | https://git.heroku.com/still-peak-87954.git
+
+  $ git push heroku master
+  
