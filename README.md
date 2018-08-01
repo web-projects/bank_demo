@@ -17,5 +17,5 @@ git remote add origin git@github.com:web-projects/bank_demo.git
 # HISTORY
 -----------------
 
-  $ 2018/07/15 - initial repository.
-  $ 2018/07/31 - added sessions support.
+    $ 2018/07/15 - initial repository.
+    $ 2018/07/31 - added sessions support.
